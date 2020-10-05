@@ -1,2 +1,3 @@
 # flutter_tinker
-Just trying to learn different packages
+
+Just trying to learn different packages/concepts.
