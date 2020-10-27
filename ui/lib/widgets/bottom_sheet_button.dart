@@ -40,11 +40,11 @@ class BottomSheetButton extends StatelessWidget {
     return RaisedButton(
       child: const Text('showBottomSheet'),
       onPressed: () {
-        Scaffold.of(context).showBottomSheet<void>(
-          (BuildContext context) {
+        showBottomSheet<void>(
+          context: context,
+          builder: (BuildContext context) {
             return Container(
               height: bottomSheetHeight,
-              color: Theme.of(context).scaffoldBackgroundColor,
               child: Stack(children: <Widget>[
                 Padding(
                   padding: const EdgeInsets.only(top: 18),
@@ -80,6 +80,8 @@ class BottomSheetButton extends StatelessWidget {
               ]),
             );
           },
+          backgroundColor: Colors.transparent,
+          shape: RoundedRectangleBorder(),
         );
       },
     );

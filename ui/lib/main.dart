@@ -15,7 +15,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
-        scaffoldBackgroundColor: Colors.white,
+        scaffoldBackgroundColor: Colors.amber,
+        canvasColor: Colors.transparent,
       ),
       home: MyHomePage(title: 'Flutter UI elements'),
     );
