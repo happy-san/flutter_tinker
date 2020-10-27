@@ -51,7 +51,11 @@ class BottomSheetButton extends StatelessWidget {
                   child: Container(
                     width: double.infinity,
                     height: bottomSheetHeight - 18,
-                    color: Colors.blueAccent,
+                    decoration: BoxDecoration(
+                        color: Colors.blueAccent,
+                        borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(15),
+                            topRight: Radius.circular(15))),
                     child: Padding(
                       padding: const EdgeInsets.only(top: 20),
                       child: ListView.builder(
