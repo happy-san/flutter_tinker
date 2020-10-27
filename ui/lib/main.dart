@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'widgets/appbar.dart';
 import 'widgets/bottom_sheet_button.dart';
 
 void main() {
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
         canvasColor: Colors.transparent,
       ),
       home: MyHomePage(title: 'Flutter UI elements'),
+      debugShowCheckedModeBanner: false,
     );
   }
 }
@@ -36,10 +38,7 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text(widget.title),
-        automaticallyImplyLeading: false,
-      ),
+      appBar: MyAppBar(widget.title),
       body: Center(
         child: BottomSheetButton(context),
       ),
