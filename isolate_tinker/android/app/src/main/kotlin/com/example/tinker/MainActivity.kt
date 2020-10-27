@@ -1,4 +1,4 @@
-package com.example.isolate
+package com.example.isolate_tinker
 
 import io.flutter.embedding.android.FlutterActivity
 
