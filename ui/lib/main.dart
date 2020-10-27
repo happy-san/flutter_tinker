@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'screens/hello_screen.dart';
 import 'widgets/appbar.dart';
 import 'widgets/bottom_sheet_button.dart';
 
@@ -40,7 +41,21 @@ class _MyHomePageState extends State<MyHomePage> {
     return Scaffold(
       appBar: MyAppBar(widget.title),
       body: Center(
-        child: BottomSheetButton(context),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            RaisedButton(
+              child: Text('navigate'),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) {
+                  return Hello();
+                }),
+              ),
+            ),
+            BottomSheetButton(context),
+          ],
+        ),
       ),
     );
   }
