@@ -26,6 +26,7 @@ class _WebViewContainerState extends State<WebViewContainer> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: widget.backgroundColor ?? Colors.transparent,
       body: IndexedStack(
         index: _stackToView,
         children: <Widget>[
@@ -46,7 +47,6 @@ class _WebViewContainerState extends State<WebViewContainer> {
                   () => VerticalDragGestureRecognizer())),
           ),
           Container(
-            color: widget.backgroundColor ?? Colors.grey[300],
             alignment: FractionalOffset.center,
             child: CircularProgressIndicator(),
           )

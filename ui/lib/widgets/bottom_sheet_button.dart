@@ -45,7 +45,6 @@ class BottomSheetButton extends StatelessWidget {
               padding: const EdgeInsets.only(top: 20),
               child: WebViewContainer(
                 'https://duckduckgo.com',
-                backgroundColor: Colors.black26,
               ),
             ),
           ),
