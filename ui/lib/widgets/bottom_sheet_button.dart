@@ -2,6 +2,7 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
 import './webview_container.dart';
+import './dragicon.dart';
 
 class BottomSheetButton extends StatelessWidget {
   const BottomSheetButton({
@@ -50,21 +51,11 @@ class BottomSheetButton extends StatelessWidget {
           ),
         ),
         Align(
-          alignment: Alignment.topCenter,
-          child: GestureDetector(
-            child: Container(
-              decoration: BoxDecoration(
-                  color: Theme.of(context).primaryColor,
-                  shape: BoxShape.circle),
-              child: const Icon(
-                Icons.keyboard_arrow_down,
-                size: 36,
-                color: Colors.white,
-              ),
-            ),
-            onTap: () => Navigator.pop(context),
-          ),
-        ),
+            alignment: Alignment.topCenter,
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10),
+              child: DragIcon(),
+            )),
       ]),
     );
   }
