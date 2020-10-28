@@ -1,40 +1,15 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-class BottomSheetButton extends StatelessWidget {
-  final BuildContext context;
-  final List<int> list = const [
-    234,
-    23,
-    4,
-    234,
-    23,
-    423,
-    4,
-    234,
-    2,
-    534,
-    5,
-    456,
-    57,
-    65,
-    613,
-    4,
-    5234,
-    64,
-    75,
-    8,
-    636,
-    54,
-    6
-  ];
+import './webview_container.dart';
 
-  const BottomSheetButton(
-    this.context, {
+class BottomSheetButton extends StatelessWidget {
+  const BottomSheetButton({
     Key key,
   }) : super(key: key);
 
   @override
-  Widget build(context) {
+  Widget build(BuildContext context) {
     final bottomSheetHeight = MediaQuery.of(context).size.height / 2;
 
     return RaisedButton(
@@ -43,51 +18,55 @@ class BottomSheetButton extends StatelessWidget {
         showBottomSheet<void>(
           context: context,
           builder: (BuildContext context) {
-            return Container(
-              height: bottomSheetHeight,
-              child: Stack(children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.only(top: 18),
-                  child: Container(
-                    width: double.infinity,
-                    height: bottomSheetHeight - 18,
-                    decoration: BoxDecoration(
-                        color: Colors.blueAccent,
-                        borderRadius: BorderRadius.only(
-                            topLeft: Radius.circular(15),
-                            topRight: Radius.circular(15))),
-                    child: Padding(
-                      padding: const EdgeInsets.only(top: 20),
-                      child: ListView.builder(
-                        itemBuilder: (context, index) {
-                          return Center(child: Text(list[index].toString()));
-                        },
-                        itemCount: list.length,
-                      ),
-                    ),
-                  ),
-                ),
-                Align(
-                  alignment: Alignment.topCenter,
-                  child: GestureDetector(
-                    child: Container(
-                      decoration: BoxDecoration(
-                          color: Colors.grey, shape: BoxShape.circle),
-                      child: const Icon(
-                        Icons.keyboard_arrow_down,
-                        size: 36,
-                      ),
-                    ),
-                    onTap: () => Navigator.pop(context),
-                  ),
-                ),
-              ]),
-            );
+            return _webviewContainer(bottomSheetHeight, context);
           },
           backgroundColor: Colors.transparent,
           shape: RoundedRectangleBorder(),
         );
       },
+    );
+  }
+
+  Widget _webviewContainer(double bottomSheetHeight, BuildContext context) {
+    return Container(
+      height: bottomSheetHeight,
+      child: Stack(children: <Widget>[
+        Padding(
+          padding: const EdgeInsets.only(top: 18),
+          child: Container(
+            width: double.infinity,
+            height: bottomSheetHeight - 18,
+            decoration: BoxDecoration(
+                color: Colors.black26,
+                borderRadius: BorderRadius.only(
+                    topLeft: Radius.circular(15),
+                    topRight: Radius.circular(15))),
+            child: Padding(
+              padding: const EdgeInsets.only(top: 20),
+              child: WebViewContainer(
+                'https://duckduckgo.com',
+                backgroundColor: Colors.black26,
+              ),
+            ),
+          ),
+        ),
+        Align(
+          alignment: Alignment.topCenter,
+          child: GestureDetector(
+            child: Container(
+              decoration: BoxDecoration(
+                  color: Theme.of(context).primaryColor,
+                  shape: BoxShape.circle),
+              child: const Icon(
+                Icons.keyboard_arrow_down,
+                size: 36,
+                color: Colors.white,
+              ),
+            ),
+            onTap: () => Navigator.pop(context),
+          ),
+        ),
+      ]),
     );
   }
 }
